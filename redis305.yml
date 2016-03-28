@@ -1,0 +1,5 @@
+---
+- hosts: hostname
+  roles:
+     - { role: redis305 }
+  
