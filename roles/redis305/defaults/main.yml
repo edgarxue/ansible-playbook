@@ -1,0 +1,12 @@
+---
+# # phpredis version
+# phpredis_version: 'phpredis-develop'
+# # the latest package for phpredis
+# phpredis_latest_package: 'phpredis-develop.zip'
+#
+# redis version
+redis_version: 'redis-3.0.5'
+# package directory
+# package_original_directory: /root
+package_untar_directory: /usr/local
+#

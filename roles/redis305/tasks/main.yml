@@ -1,0 +1,19 @@
+---
+# file: main.yml
+#- name: Redis | Prepare redis installed  directory
+#  file: path="{{ item }}" state=directory recurse=yes
+#  with_items:
+#    - "{{ package_untar_directory }}/{{ redis_version }}"
+
+- name: Redis latest | Unarchive redis
+  unarchive: src={{ redis_version }}.tar.gz dest={{ package_untar_directory }}/
+
+
+- name: redis latest | Installed Redis 
+  script: redis_install.sh {{ package_untar_directory }}/{{ redis_version }} 
+
+- name: Conf| Set daemonize yes
+  lineinfile: dest={{ package_untar_directory }}/{{ redis_version }}/redis.conf regexp="daemonize no" line="daemonize yes" state=present 
+
+- name: Init|copy redis init script
+  copy: src=init.redis dest=/etc/init.d/redis305 owner=root group=root mode=0755
