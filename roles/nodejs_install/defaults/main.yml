@@ -1,0 +1,9 @@
+---
+#
+
+node_version: node-v5.5.0-linux-x64
+install_directory: /usr/local
+
+userowner: root
+groupowner: root
+

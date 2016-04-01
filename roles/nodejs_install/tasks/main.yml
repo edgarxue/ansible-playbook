@@ -1,0 +1,17 @@
+---
+#
+- name: Nodejs | unarchive package
+  unarchive: src={{ node_version }}.tar.gz dest={{ install_directory }}
+
+- name: Nodejs | Link unarchive to node
+  file: src={{ install_directory }}/{{ node_version }} dest={{ install_directory }}/node owner={{ userowner }} group={{ groupowner }} state=link force=yes
+ 
+- name: Nodejs | Set env
+  copy: src=node.sh dest=/etc/profile.d/node.sh owner=root group=root
+
+- name: Nodejs | Source env
+  shell: source /etc/profile.d/node.sh
+
+
+
+#
