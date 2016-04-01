@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+#  remote_user:
+#  sudo: yes
+  roles:
+    - { role: nodejs_install }
